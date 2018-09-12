@@ -1,17 +1,21 @@
 import asyncio
+import markovify
 import os
 import json
 import re
 import discord
-from discord.ext import commands
+
+messages_to_fetch = 500
 
 with open('Vars.json', 'r') as v:
     vars = json.load(v)
 
-bot = commands.Bot(command_prefix='!')
+client = discord.Client()
 
-@bot.event
+#def get_messages_from_user(member_to_get):
+
+@client.event
 async def on_ready():
-    print(f'Logged in as {bot.user.name}#{bot.user.discriminator}')
+    print(f'Logged in as {client.user.name}#{client.user.discriminator}')
 
-bot.run(vars["token"], bot=True, reconnect=True)
+client.run(vars["token"])

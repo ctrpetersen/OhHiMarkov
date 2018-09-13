@@ -20,7 +20,7 @@ async def on_ready():
     await fetch()
 
 async def fetch():
-    g = bot.get_guild(365442290992545792)
+    g = bot.get_guild(139677590393716737)
     messages = 0
     for ch in g.channels:
         if isinstance(ch, discord.TextChannel):

@@ -4,15 +4,16 @@ import os
 import json
 import re
 import discord
+import sqlite3
 
-messages_to_fetch = 500
+db = sqlite3.connect('messages.sqlite')
+c = db.cursor()
 
 with open('Vars.json', 'r') as v:
     vars = json.load(v)
 
 client = discord.Client()
 
-#def get_messages_from_user(member_to_get):
 
 @client.event
 async def on_ready():
